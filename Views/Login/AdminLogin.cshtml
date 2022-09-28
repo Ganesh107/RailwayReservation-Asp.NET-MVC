@@ -1,0 +1,75 @@
+﻿@model RailwayReservationUsingMVC.Models.Admins
+
+@{
+    ViewBag.Title = "AdminLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/CSS/Login.css" rel="stylesheet" />
+    <title>Login</title>
+</head>
+
+<body>
+    <fieldset style="width:1000px; padding-top:85px; padding-bottom:30px;">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-7 col-sm-4">
+                            <h1 class="font-weight-bold">Admin Login</h1>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Adminid, new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.Adminid, new { htmlAttributes = new { @class = "form-control", type = "number", placeholder = "User ID" } })
+                                    @Html.ValidationMessageFor(model => model.Adminid, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password", placeholder = "Password" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-2"></div>
+                                <input type="submit" class="btn btn-success" value="Login" />
+                                <input type="button" class="btn btn-primary" value="Sign up" onclick="@("window.location.href='" + @Url.Action("AddPassenger", "Signup") + "'");" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            @if (TempData["invalid"] != null)
+                            {
+                                <p class="alert alert-danger">@TempData["invalid"]!</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </fieldset>
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

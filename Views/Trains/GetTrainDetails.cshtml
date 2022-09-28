@@ -1,0 +1,107 @@
+﻿@model RailwayReservationUsingMVC.Models.Traininfo
+
+@{
+    ViewBag.Title = "GetTrainDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Train Details</h2>
+
+<div>
+    <h4>Traininfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Trainname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trainname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Startloc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Startloc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endloc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endloc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arrivaltime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arrivaltime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departuretime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departuretime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arrivaldate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arrivaldate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ac2tier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ac2tier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sleeper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sleeper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ac3tier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ac3tier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tatkal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tatkal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ladies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ladies)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditTrain", new { trainid = Model.Trainnumber }) |
+    @Html.ActionLink("Back", "GetAllTrains")
+</p>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<RailwayReservationUsingMVC.Models.Traininfo>
+
+@{
+    ViewBag.Title = "AvailableTrains";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AvailableTrains</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Trainname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Startloc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endloc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrivaltime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departuretime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrivaldate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ac2tier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sleeper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ac3tier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tatkal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ladies)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Trainname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Startloc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endloc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arrivaltime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departuretime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arrivaldate)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Ac2tier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sleeper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ac3tier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tatkal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ladies)
+            </td>
+        </tr>
+    }
+
+</table>

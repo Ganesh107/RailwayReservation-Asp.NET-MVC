@@ -1,0 +1,102 @@
+﻿@model IEnumerable<RailwayReservationUsingMVC.Models.Traininfo>
+
+@{
+    ViewBag.Title = "SearchTrains";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+    <h2 align="center">SearchTrains</h2>
+    <div>
+
+        @using (Html.BeginForm("SearchTrains", "Trains", FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.TextBox("startloc", null, new { Class = "form-control", placeholder = "Starting Location" })
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBox("endloc", null, new { Class = "form-control", placeholder = "Ending Location" })
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBox("date", null, new { Class = "form-control", type = "date" })
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" value="Search" class="btn btn-success" />
+                </div>
+            </div>
+        }
+        <hr />
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+    <h3 align="center">Available Trains</h3>
+    <table class="table table-responsive table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arrivaltime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departuretime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ac2tier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sleeper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ac3tier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tatkal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ladies)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trainname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Arrivaltime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departuretime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ac2tier)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sleeper)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ac3tier)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tatkal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ladies)
+                </td>
+                <td>
+                    @Html.ActionLink("Book", "BookTicket", new { trainid = item.Trainnumber })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p>
+        @Html.ActionLink("Logout", "Logout", new { @Class = "text-danger" })
+    </p>
+</body>
+

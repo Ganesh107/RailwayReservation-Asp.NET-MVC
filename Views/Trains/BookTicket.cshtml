@@ -1,0 +1,104 @@
+﻿@model RailwayReservationUsingMVC.Models.Ticket
+
+@{
+    ViewBag.Title = "BookTicket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 align="center">Book Tickets</h3>
+<br />
+<div class="container-fluid">
+    <div class="col-md-10">
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col">
+                        &nbsp;&nbsp;&nbsp;&nbsp;@Session["trainname"]
+                    </div>
+                    <hr />
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        @Session["startloc"] | @Session["endloc"]
+                    </div>
+                    <div class="col-md-4">
+                        -----@DateTime.Now.Date-----
+                    </div>
+                    <div class="col-md-4">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Session["endloc"]
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4">
+                        Boarding Station | @Session["startloc"]
+                    </div>
+                    <div class="col-md-4">
+                        &nbsp;&nbsp;&nbsp;&nbsp;Departure Time | @Session["departuretime"]
+                    </div>
+                    <div class="col-md-4">
+                        &nbsp;&nbsp;&nbsp;&nbsp;Destination | @Session["endloc"]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    @using (Html.BeginForm(""))
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <label>Select Class</label> @Html.DropDownList("TrainClasses", ViewBag.TrainClasses as List<SelectListItem>, "Select Class", new { Class = "form-control" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <h4>&nbsp;&nbsp;&nbsp;Passenger Details</h4>
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Pname, new { htmlAttributes = new { @class = "form-control", placeholder = "Name" } })
+                    @Html.ValidationMessageFor(model => model.Pname, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownList("Genders", (IEnumerable<SelectListItem>)ViewBag.Genders, "Choose Gender",new { Class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Coachnumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Coach Number" } })
+                    @Html.ValidationMessageFor(model => model.Coachnumber, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Berthnumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Berth Number" } })
+                    @Html.ValidationMessageFor(model => model.Berthnumber, null, new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+                <div class="col">
+                    <input type="submit" value="Book Now" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+        <p>
+            @Html.ActionLink("Logout","Logout")
+        </p>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

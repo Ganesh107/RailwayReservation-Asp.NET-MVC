@@ -1,0 +1,104 @@
+﻿@model IEnumerable<RailwayReservationUsingMVC.Models.Traininfo>
+
+@{
+    ViewBag.Title = "GetAllTrains";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/CSS/Trainstable.css" rel="stylesheet" />
+</head>
+<h2>TRAIN DETAILS</h2>
+
+<p>
+    @Html.ActionLink("Add New Train", "AddTrain", new { htmlAttributes = new { @class = "actionlink" } }) | @Html.ActionLink("Logout", "Logout", new { @Class = "text-danger" })
+</p>
+
+<div style="overflow:scroll;">
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Trainnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trainname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Startloc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endloc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrivaltime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departuretime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrivaldate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ac2tier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sleeper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ac3tier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tatkal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ladies)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelitem => item.Trainnumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trainname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Startloc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endloc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arrivaltime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departuretime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arrivaldate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ac2tier)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sleeper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ac3tier)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tatkal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ladies)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditTrain", new { trainid=item.Trainnumber }) |
+            @Html.ActionLink("Details", "GetTrainDetails", new { trainid=item.Trainnumber }) |
+            @Html.ActionLink("Delete", "DeleteTrain", new { trainid=item.Trainnumber })
+        </td>
+    </tr>
+}
+</table>
+</div>

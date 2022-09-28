@@ -1,0 +1,77 @@
+﻿@model IEnumerable<RailwayReservationUsingMVC.Models.Ticket>
+
+@{
+    ViewBag.Title = "ViewTicket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewTicket</h2>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trainname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ticketclass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Berthnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Coachnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrivaldate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bookingdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bookingstatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trainname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ticketclass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Berthnumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Coachnumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arrivaldate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bookingdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bookingstatus)
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Logout", "Logout", new {@Class="text-danger"})
+</p>

@@ -1,0 +1,17 @@
+﻿.carousel-caption {
+    top: 0;
+    bottom: auto;
+}
+
+.carousel .item {
+    height: 610px;
+}
+
+.item img {
+    position: absolute;
+    width:100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    min-height: 610px;
+}
